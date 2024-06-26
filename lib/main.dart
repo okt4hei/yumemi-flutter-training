@@ -57,16 +57,19 @@ class MainApp extends StatelessWidget {
                     children: [
                       const SizedBox(height: 80),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Expanded(
-                              child: TextButton(
-                                  onPressed: () {},
-                                  child: const Text('Close'))),
+                            child: TextButton(
+                              onPressed: () {},
+                              child: const Text('Close'),
+                            ),
+                          ),
                           Expanded(
-                              child: TextButton(
-                                  onPressed: () {},
-                                  child: const Text('Reload'))),
+                            child: TextButton(
+                              onPressed: () {},
+                              child: const Text('Reload'),
+                            ),
+                          ),
                         ],
                       ),
                     ],
