@@ -10,6 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.10+1
+  yumemi_weather:
+    git:
+      url: https://github.com/yumemi-inc/flutter-training-template.git
+      ref: main
+      path: packages/yumemi_weather
 
 dev_dependencies:
   flutter_test:
@@ -17,4 +23,6 @@ dev_dependencies:
   yumemi_lints: ^2.1.0
 
 flutter:
+  assets:
+    - assets/
   uses-material-design: true

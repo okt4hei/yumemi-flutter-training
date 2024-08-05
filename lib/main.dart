@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_training/yumemi_api.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  MainAppState createState() => MainAppState();
+}
+
+class MainAppState extends State<MainApp> {
+  final YumemiApi _yumemiApi = YumemiApi();
+  Widget weatherIcon = const Placeholder();
+
+  void reload() {
+    final weatherCondition = _yumemiApi.fetchWeather();
+    setState(() {
+      weatherIcon = SvgPicture.asset('assets/$weatherCondition.svg');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +36,9 @@ class MainApp extends StatelessWidget {
                 const Spacer(),
                 Column(
                   children: [
-                    const AspectRatio(
+                    AspectRatio(
                       aspectRatio: 1,
-                      child: Placeholder(),
+                      child: weatherIcon,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -66,7 +83,7 @@ class MainApp extends StatelessWidget {
                           ),
                           Expanded(
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: reload,
                               child: const Text('Reload'),
                             ),
                           ),
