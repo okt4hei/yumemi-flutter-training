@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:yumemi_weather/yumemi_weather.dart';
+import 'package:flutter_training/yumemi_api.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,11 +14,11 @@ class MainApp extends StatefulWidget {
 }
 
 class MainAppState extends State<MainApp> {
-  final YumemiWeather _yumemiWeather = YumemiWeather();
+  final YumemiApi _yumemiApi = YumemiApi();
   Widget weatherIcon = const Placeholder();
 
   void reload() {
-    final weatherCondition = _yumemiWeather.fetchSimpleWeather();
+    final weatherCondition = _yumemiApi.fetchWeather();
     setState(() {
       weatherIcon = SvgPicture.asset('assets/$weatherCondition.svg');
     });
