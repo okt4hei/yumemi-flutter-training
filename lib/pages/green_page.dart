@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/pages/weather.dart';
+import 'package:flutter_training/pages/weather_page.dart';
 
 class GreenPage extends StatefulWidget {
   const GreenPage({super.key});
@@ -8,7 +8,7 @@ class GreenPage extends StatefulWidget {
   State<GreenPage> createState() => GreenPageState();
 }
 
-class GreenPageState extends State<GreenPage> with WidgetsBindingObserver {
+class GreenPageState extends State<GreenPage> {
   void movePage() {
     Future.delayed(const Duration(milliseconds: 500), () async {
         if (mounted) {
